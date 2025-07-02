@@ -3,26 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>API test</title>
+	<title>JS lvl 1 pt 2</title>
 </head>
 <body>
-	<img src="" id="dogimg">
-	<script>
-		async function GetAPIData() {
-            try {
-                const response = await fetch("https://dog.ceo/api/breeds/image/random");
-                if (response.ok) {
-                    const data = await response.json();
-                	document.getElementById("dogimg").src = data["message"];
-                } else {
-                    console.error(`HTTP error ${response.status}`);
-                }
-            } catch (error) {
-                console.error("Fetch failed:", error);
-            }
-        }
+	<input id="name" placeholder="Enter your name">
+	<button id="dowork">Submit</button>
+	<p id="welcome"></p>
  
-		GetAPIData();
+	<script defer>
+		document.getElementById("dowork").addEventListener("click", function (e) {
+			document.getElementById("welcome").innerHTML = "Welcome " + document.getElementById("name").value;
+		});
 	</script>
 </body>
 </html>
